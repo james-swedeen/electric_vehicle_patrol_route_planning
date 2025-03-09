@@ -1,0 +1,111 @@
+##
+# @File: TryFireflyConfig.srv
+#
+# @brief
+# Used to test a particular Firefly Algorithm configuration.
+#
+
+float64 max_solve_time_sec
+
+bool use_greedy_in_init
+bool use_field_accent_in_init
+bool use_local_search
+
+float64 local_search_max_time_sec
+
+float32 field_accent_width
+float32 field_accent_search_weight
+float32 field_accent_avoid_weight
+
+uint32  population_size
+uint32  max_dwell_time_hotspot
+uint32  max_dwell_time_depot
+float32 distance_power
+float32 distance_multiplier
+float32 base_attractiveness_multiplier
+uint32  tweak_dwell_time_max_change
+uint32  initialization_max_dwell_time
+float32 local_search_probability
+
+float32 initial_temperature
+float32 min_temperature
+float32 cooling_rate
+uint32  group_number
+uint32  number_elite
+float64 accept_cost_threshold
+float64 sa_max_time_sec
+
+uint8 NO_USE_FIREFLY_OPERATOR=0
+uint8 NORMAL_FIREFLY_OPERATOR=1
+uint8 BIDIRECTIONAL_FIREFLY_OPERATOR=2
+uint8 SIMULATED_ANNEALING=3
+uint8 PATH_RELINKING=4
+uint8 RAND=5
+uint8 GREEDY=6
+uint8 FIELD_ACCENT=7
+
+uint8 use_firefly_operator
+
+bool use_original_luminosity_multiplier
+bool force_no_duplicates
+
+uint8 FITNESS_SELECTION=0
+uint8 SUS_SELECTION=1
+uint8 FITNESS_PROPORTIONAL_SELECTION=2
+uint8 K_MEANS_SELECTION=3
+
+uint8 use_selection
+
+bool use_elitism_selection
+
+uint64 number_clusters
+uint64 number_cluster_iterations
+
+float32 mop_add_visit
+float32 mop_add_hotspot_visit
+float32 mop_add_depot_visit
+float32 mop_remove_visit
+float32 mop_remove_hotspot_visit
+float32 mop_remove_depot_visit
+float32 mop_remove_visits_windowed
+float32 mop_change_dwell_time
+float32 mop_tweak_dwell_time
+float32 mop_swap_path
+float32 mop_swap_visits
+float32 mop_swap_multiple_visits
+float32 mop_move_visit
+float32 mop_sim
+#float64 mop_add_visit_min_time_path
+#float64 mop_add_hotspot_visit_min_time_path
+#float64 mop_add_depot_visit_min_time_path
+#float64 mop_remove_visit_min_time_path
+#float64 mop_remove_hotspot_visit_min_time_path
+#float64 mop_remove_depot_visit_min_time_path
+#float64 mop_remove_visits_windowed_min_time_path
+#float64 mop_swap_path_min_time_path
+#float64 mop_swap_visits_min_time_path
+#float64 mop_swap_multiple_visits_min_time_path
+#float64 mop_move_visit_min_time_path
+#float64 mop_sim_min_time_path
+#float64 mop_add_visit_min_charge_path
+#float64 mop_add_hotspot_visit_min_charge_path
+#float64 mop_add_depot_visit_min_charge_path
+#float64 mop_remove_visit_min_charge_path
+#float64 mop_remove_hotspot_visit_min_charge_path
+#float64 mop_remove_depot_visit_min_charge_path
+#float64 mop_remove_visits_windowed_min_charge_path
+#float64 mop_swap_path_min_charge_path
+#float64 mop_swap_visits_min_charge_path
+#float64 mop_swap_multiple_visits_min_charge_path
+#float64 mop_move_visit_min_charge_path
+#float64 mop_sim_min_charge_path
+
+---
+
+float64[] cost_gen
+float64[] time_gen_sec
+float64[] ecr_two_norm_gen
+float64[] ecr_inf_norm_gen
+float64[] response_time_two_norm_gen
+float64[] response_time_inf_norm_gen
+

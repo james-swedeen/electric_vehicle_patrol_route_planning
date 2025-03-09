@@ -1,0 +1,73 @@
+##
+# @File: GeneratePlan.srv
+# @Date: January 2025
+# @Author: James Swedeen
+#
+# @brief
+# Used to request of surveillance plan of over a given street graph.
+#
+
+
+### Problem Specifications
+# This section defines how long of a plan to create.
+
+# The length of time to create a plan for in seconds
+float64 planning_horizoni
+# The time step in seconds that each state of the resulting plan will be given at (approximately)
+float64 time_step
+
+### Street Graph Specifications
+# This section specifies the street graph that planning is performed over.
+
+## Node locations
+# Note: The zero index of this list is considered the depot. All agent are assumed to start at the depot and it is where they have to go to charge.
+
+# x,y, and elevation location in meters of each street intersection
+geometry_msgs/Point[] nodes
+
+## Edges
+# These are the streets. Each must connect two nodes. These are one-directional, so if you want a two-way street it takes specifying an edge in path directions.
+
+# Which node the edge starts at
+uint64[] from_node_ind
+# Which node the edge ends at
+uint64[] to_node_ind
+# The length of each edge in meters
+float64[] lengths
+# How long it takes an agent to traverse the edge in seconds
+float64[] traversal_time
+# How many kilo-Watt hours of battery usage is consumed while traversing the edge
+float64[] power_usage
+
+## Hotspots
+# These are specific locations that need to be periodically monitored by an agent.
+
+# The node indexes that correlate to each hotspot
+uint64[] hotspot_ind
+# The length of time it takes this hotspot to reach max threat level from the lowest threat level in seconds
+float64[] transition_time
+# The percentage of the max threat level the hotspot starts at
+float64[] initial_threat_present
+
+### Agent Specifications
+# This section defines the configuration of each agent.
+
+# The max state of charge of the agent in kilo-Watt hours
+float64[] max_soc
+# The rate at which the agent charges in kilo-Watt hours per a second
+float64[] charge_rate
+# The rate of discharge when not traversing an edge in kilo-Watt hours per a second
+float64[] auxiliary_power
+
+---
+
+### Resulting Plan
+# This section gives information about the plan that was generated.
+
+# The time at which each state should be achieved in terms of seconds sense the start of the planning horizon
+float64[] time
+# The position and state of charge of each agent, first index indexes each agent, second index correlates to time
+graph_surveillance_planning_msgs/AgentState[] agents_state
+# The threat level of each hotspot, first index indexes each place of interest, second index correlates to time
+graph_surveillance_planning_msgs/ExpectedEventRates[] expected_event_rates
+

@@ -1,0 +1,60 @@
+##
+# @File: TryFireflyAlgorithmConfig.srv
+#
+# @brief
+# Used to test a particular Firefly Algorithm configuration.
+#
+
+# 0: Easom
+# 1: Rastrigin
+# 2: Griewank
+# 3: Schwefel
+# 4: Ackley
+# 5: Rosenbrock
+
+uint64 problem_ind
+
+uint64 number_runs # The number of runs to perform
+
+uint64  population_size
+float64 distance_power
+float64 distance_multiplier
+float64 base_attractiveness_multiplier
+float64 min_attractiveness_multiplier
+float64 mutation_magnitude
+float64 cost_scaling_mult
+float64 from_cost_scaling_mult
+float64 soft_max_mult
+
+float64 pso_phi_particles
+float64 pso_phi_global
+
+uint8 NO_USE_FIREFLY_OPERATOR=0
+uint8 NORMAL_FIREFLY_OPERATOR=1
+uint8 BIDIRECTIONAL_FIREFLY_OPERATOR=2
+uint8 VEC_FIREFLY_OPERATOR=3
+uint8 VEC_BIDIRECTIONAL_FIREFLY_OPERATOR=4
+uint8 PSO=5
+
+uint8 use_firefly_operator
+
+bool use_original_luminosity_multiplier
+bool force_no_duplicates
+
+uint8 FITNESS_SELECTION=0
+uint8 SUS_SELECTION=1
+uint8 FITNESS_PROPORTIONAL_SELECTION=2
+uint8 K_MEANS_SELECTION=3
+
+uint8 use_selection
+
+bool use_elitism_selection
+
+uint64 number_clusters
+uint64 number_cluster_iterations
+
+---
+
+float64[] costs
+float64[] times
+
