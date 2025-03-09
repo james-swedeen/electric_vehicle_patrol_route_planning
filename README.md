@@ -73,7 +73,7 @@ This package contains ROS2 message and service definitions used in the other pac
 This package contains a ROS2 node that plots surveillance plans received over a ROS2 topic.
 An example result is shown below.
 
-<img src="./../plan_plotter/pics/planner_test.svg">
+<img src="./plan_plotter/pics/planner_test.svg">
 
 ### street_graph
 
